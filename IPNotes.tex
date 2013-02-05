@@ -1,0 +1,196 @@
+%%There is just one section and two subsections.
+\documentclass[11pt]{article}
+%\documentclass[aps]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{verbatim}
+%\usepackage{aas_macros}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{afterpage}
+\newcommand{\del}{\nabla}
+\newcommand{\boldnabla}{\boldmath $\nabla$ \unboldmath}
+\usepackage{lscape}
+\usepackage{cite}
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+%\parskip = 0.2in
+\parindent = 0.2in
+\newcommand{\dblspace}{\renewcommand{\baselinestretch}{1.8}\normalsize}
+\newcommand{\snglspace}{\renewcommand{\baselinestretch}{1}\normalsize}
+\newcommand{\qe}{\stackrel{?}{=}}
+\newcommand{\av}[1]{\left \langle #1 \right \rangle}
+
+
+\begin{document}
+\section{Inner Product Notes}
+IP1 is the equation
+\begin{equation}
+\frac{1}{2} \oint {^2}R (D^k v_i)(D_k v_j) {\rm d \Omega} = \frac{2}{3} 4 \pi \delta_{ij}.
+\end{equation}
+IP2 is the equation
+\begin{equation}
+\frac{1}{2} \oint {^2}R (D^k v_i)(D_k v_j) {\rm d A} = \frac{2}{3}  \pi A \delta_{ij}.
+\end{equation}
+%IP3 is the equation
+%\begin{equation}
+%\frac{1}{2} \oint {^2}R (D^k v_i)(D_k v_j) {\rm d A} = \frac{2}{3}  \pi A s \delta_{ij}.
+%\end{equation}
+IP4 is the equation
+\begin{equation}
+\frac{1}{2} \oint  (D^k v_i)(D_k v_j) {\rm d \Omega} = \frac{2}{3} 4 \pi \delta_{ij}.
+\end{equation}
+IP5 is the equation
+\begin{equation}
+\frac{1}{2} \oint  (D^k v_i)(D_k v_j) {\rm d A} = \frac{2}{3}  \pi A \delta_{ij}.
+\end{equation}
+%IP6 is the equation
+%\begin{equation}
+%\frac{1}{2} \oint  (D^k v_i)(D_k v_j) {\rm d A} = \frac{2}{3}  \pi A s \delta_{ij}.
+%\end{equation}
+In general,
+\begin{eqnarray}
+{^2}R &=& \frac{2}{r^2 \psi^4} (1-2{~_s}\nabla^2 \ln \psi)\\
+S_{ij} &=& \left( \begin{matrix} 1&0 \\ 0 & \sin^2 \theta \end{matrix} \right) \\
+h_{ij} &=& r^2 \psi^4 S_{ij}.
+\end{eqnarray}
+
+\noindent
+For a general surface, the LHS of [IP1, IP2] become
+\begin{eqnarray}
+\frac{1}{2} \oint {^2}R (D^k v_i)(D_k v_j) {~\rm d [\Omega, A]}
+&=& \frac{1}{2} \oint \frac{2}{r^2 \psi^4}(1-2{~_s}\nabla^2 \ln \psi) (h^{kl} \partial_l v_i) (\partial_k v_j) {~\rm d [\Omega,A]} \\
+&=& \oint \frac{1}{r^2 \psi^4}(1-2{~_s}\nabla^2 \ln \psi) \frac{1}{r^2 \psi^4} S^{kl} (\partial_l v_{i})(\partial_k v_{j}) {~\rm d [\Omega,A]} \\
+&=& \oint \frac{1}{r^4 \psi^8}(1-2{~_s}\nabla^2 \ln \psi) S^{kl} (\partial_l v_{i})(\partial_k v_{j}) {~\rm d [\Omega,A]}
+\end{eqnarray}
+
+\noindent
+In SpherePack, a real scalar function $f(\theta, \phi)$ is represented as
+\begin{equation}
+f(\theta, \phi) = \sum_{l=0}^{\infty} {\sum_{m=0}^{l}}' P_l^m(\cos \theta)\{ a_{lm} \cos(m\phi) - b_{lm}\sin(m\phi)\},
+\end{equation}
+where $\sum'$ indicates that the $m=0$ term is to be multiplied by $1/2$.  As a shorthand, define
+\begin{eqnarray}
+a_{lm}^{f} &\equiv& P_l^m(\cos \theta) a_{lm} \cos(m \phi) \\
+b_{lm}^{f} &\equiv& P_l^m(\cos \theta) b_{lm} \sin(m \phi) 
+\end{eqnarray}
+for a given expansion of the function $f$.
+
+\noindent
+Define the following notation for expansion using only the $l=0$ terms:
+\begin{eqnarray}
+\av{r^2 \psi^4} &\equiv& \sum_{l=0}^{0}{\sum_{m=0}^{l}}' P_l^m(\cos \theta)\{ a_{lm} \cos(m\phi) - b_{lm}\sin(m\phi)\} \\
+&=& \frac{1}{2} a_{00}^{r^2 \psi^4}
+\end{eqnarray}
+
+\begin{comment}
+\noindent
+(is this a good idea?) As further shorthand, define
+\begin{equation}
+Y_{1j} \equiv P_1^j (\cos \theta)\{ a_{1j} \cos(j\phi) - b_{1j}\sin(j\phi)\}
+\end{equation}
+\end{comment}
+
+
+\section{Sphere}
+For a sphere, the $l=1$ terms of $L$ are non-zero, and the $l=0$ terms of $r^2 \psi^4$ are non-zero.  We see that
+\begin{eqnarray}
+r^2 \psi^4 &=& \sum_{l=0}^{0} {\sum_{m=0}^{0}}' \{ a_{lm}^{r^2 \psi^4}  - b_{lm}^{r^2 \psi^4} \} = \frac{1}{2} a_{00}^{r^2 \psi^4} \\
+L_i &=& \sum_{l=1}^{1} {\sum_{m=i}}' \{ a_{lm}^{L}  - b_{lm}^{L} \} = a_{1i}^{L} - b_{1i}^{L}
+\end{eqnarray}
+Then $v$ can be expressed as
+\begin{eqnarray}
+v_i &\equiv& \sum_{l=0}^{\infty} {\sum_{m=0}^{l}}' \{ a_{lm}^{v}  - b_{lm}^{v} \} \\
+{_s}\nabla^2 v_i &=& \sum_{l=0}^{\infty} {\sum_{m=0}^{l}}' l(l+1)\{a_{lm}^{v}  - b_{lm}^{v} \} \\
+{_s}\nabla^2 v_i &=& -2 r^2 \psi^4 L_i = - a_{00}^{r^2 \psi^4} \{ a_{1i}^{L} - b_{1i}^{L} \}\\
+\implies v_i &=& -\frac{1}{2} a_{00}^{r^2 \psi^4} \{ a_{1i}^{L}-b_{1i}^{L} \}.
+\end{eqnarray}
+
+
+\subsection{Unit Sphere}
+For a unit sphere,
+\begin{eqnarray}
+r &=& 1 \\
+\psi &=& 1 \\
+v_i &=& -(1) L_{i} =   -\{ a_{1i}^{L}-b_{1i}^{L} \} .
+\end{eqnarray}
+
+\noindent
+The relations IP1 and IP2 become
+\begin{eqnarray}
+\oint \frac{1}{r^4 \psi^8}(1-2{_s}\nabla^2 \ln \psi) S^{kl} (\partial_l v_{i})(\partial_k v_{j}) {~\rm d [\Omega,A]}
+&=& \oint S^{kl} (\partial_l L_i)(\partial_k L_j) {~\rm d [\Omega,A]}
+\end{eqnarray}
+
+
+
+\subsection{Arbitrary Sphere}
+For an arbitrary sphere,
+\begin{eqnarray}
+r &=& {\rm constant} \\
+\psi &=& {\rm constant} \\
+v_i &=& -r^2 \psi^4 L_i = -\frac{1}{2} a_{00}^{r^2 \psi^4} \{ a_{1i}^{L}-b_{1i}^{L} \}.
+\end{eqnarray}
+
+\noindent
+The relations IP1 and IP2 become
+\begin{eqnarray} \nonumber
+&&\oint \frac{1}{r^4 \psi^8}(1-2{_s}\nabla^2 \ln \psi) S^{kl} (\partial_l v_{i})(\partial_k v_{j}) {~\rm d [\Omega,A]} \\
+&=& \oint \frac{1}{r^4 \psi^8} S^{kl} (\partial_l r^2 \psi^4 L_{i})(\partial_k r^2 \psi^4 L_{j}) {~\rm d [\Omega,A]} \\
+&=& \oint S^{kl} (\partial_l  L_{i})(\partial_k  L_{j}) {~\rm d [\Omega,A]}
+\end{eqnarray}
+
+
+\section{Arbitrary Surface}
+For an arbitrary surface, $l \ne 1$ terms may contribute to the expansions of $L$ and $r^2 \psi^4$.  The function $L$ is represented as
+\begin{eqnarray}
+L_i  &=& \sum_{l=0}^{\infty}{\sum_{m=0}^l}' P_l^m \{ a_{lm} \cos(m\phi) - b_{lm}\sin(m\phi)\} \\
+&=& \{ a_{1i}^{L}-b_{1i}^{L}  \} + \frac{1}{2} a_{00}^{L} + \sum_{l=2}^{\infty}{\sum_{m=0}^l}' \{ a_{lm}^{L}-b_{lm}^{L}  \}.
+\end{eqnarray}
+Similarly, for the conformal factor,
+\begin{equation}
+r^2 \psi^4 = \frac{1}{2} a_{00}^{r^2 \psi^4} + \sum_{l=1}^{\infty}{\sum_{m=0}^l}' \{ a_{lm}^{r^2 \psi^4}-b_{lm}^{r^2 \psi^4}  \} 
+\end{equation}
+
+
+\noindent
+Then the $v_i$ terms become
+\begin{eqnarray}
+v_i &=& -r^2 \psi^4 L_i \\ \nonumber
+&=& -\frac{1}{2} a_{00}^{r^2 \psi^4} \{ a_{1i}^{L}-b_{1i}^{L} \} \\ \nonumber
+&&-\frac{1}{2}a_{00}^{r^2\psi^4} \left[ \frac{1}{2}a_{00}^{L}+\sum_{l=2}^{\infty}{\sum_{m=0}^l}' \{ a_{lm}^{L}-b_{lm}^{L}\} \right] \\
+&&-\frac{1}{2}a_{00}^{L}\sum_{l=1}^{\infty}{\sum_{m=0}^l}' \{ a_{lm}^{r^2 \psi^4}-b_{lm}^{r^2 \psi^4}\} \\ \nonumber
+&& -\{ a_{1i}^{L}-b_{1i}^{L} \} \sum_{l=1}^{\infty}{\sum_{m=0}^l}' \{ a_{lm}^{r^2 \psi^4}-b_{lm}^{r^2 \psi^4}\} \\ \nonumber
+&& -\sum_{l=1}^{\infty}{\sum_{m=0}^l}' \{ a_{lm}^{r^2 \psi^4}-b_{lm}^{r^2 \psi^4}\} 
+        \sum_{l=2}^{\infty}{\sum_{m=0}^l}' \{ a_{lm}^{L}-b_{lm}^{L}\}
+\end{eqnarray}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\bibliographystyle{apsrev}
+%\bibliography{bibfile}
+
+
+\end{document}
