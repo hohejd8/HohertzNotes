@@ -1,0 +1,117 @@
+%%There is just one section and two subsections.
+\documentclass[11pt]{article}
+%\documentclass[aps]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{verbatim}
+%\usepackage{aas_macros}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{afterpage}
+\newcommand{\del}{\nabla}
+\newcommand{\boldnabla}{\boldmath $\nabla$ \unboldmath}
+\usepackage{lscape}
+\usepackage{cite}
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+%\parskip = 0.2in
+\parindent = 0.2in
+\newcommand{\dblspace}{\renewcommand{\baselinestretch}{1.8}\normalsize}
+\newcommand{\snglspace}{\renewcommand{\baselinestretch}{1}\normalsize}
+\newcommand{\qe}{\stackrel{?}{=}}
+\newcommand{\av}[1]{\left \langle #1 \right \rangle}
+
+
+\begin{document}
+\section{Killing Scaling}
+Let the Killing vector be proportional to some basis vector such that $\xi = s \widetilde{A}$, where $s$ is specific to the fact that the $l=1$ modes of $L$ are normalized.  Then
+\begin{eqnarray}
+\frac{3}{16 \pi} \oint ~^2R \widetilde{A} \cdot \widetilde{A} {\rm d \Omega} &=& \frac{1}{s} \\
+\frac{3}{16 \pi} \oint ~^2R (s \widetilde{A}) \cdot (s \widetilde{A}) {\rm d \Omega} &=& 
+\frac{3}{16 \pi} \oint ~^2R \xi \cdot \xi {\rm d \Omega} = s 
+\end{eqnarray}
+Similarly, let $\zeta$ be proportional to $\widetilde{A}$ such that $\zeta = \alpha \widetilde{A}$, where $\alpha$ represents the fact that the $l=1$ modes are not necessarily normalized.  Then
+\begin{equation}
+\frac{3}{16 \pi} \oint ~^2R (\alpha \widetilde{A}) \cdot (\alpha \widetilde{A}) {\rm d \Omega} = 
+\frac{3}{16 \pi} \oint ~^2R \zeta \cdot \zeta {\rm d \Omega} = \frac{\alpha^2}{s} \equiv \beta
+\end{equation}
+
+\noindent
+How do we relate $\xi$ to $\zeta$ directly using the spherical harmonic functions?  We are only interested in the $Y_a^m$ coefficients, so look at the $Y_1^m$ terms:
+\begin{eqnarray}
+Y_1^0 &=& \sqrt{\frac{3}{4 \pi}} \cos \theta \\
+Y_1^{\pm 1} &=& \mp \sqrt{\frac{3}{8 \pi}} \sin \theta e^{\pm i \phi}.
+\end{eqnarray}
+We can write the orthogonal directions $(x,y,z)$ in terms of trig functions on a sphere:
+\begin{alignat*}{3}
+n^1 &= \sin \theta \cos \phi &= \hat{x} \\
+n^2 &= \sin \theta \sin \phi &= \hat{y}\\
+n^3 &= \cos \theta &= \hat{z}
+\end{alignat*}
+Then in terms of the $Y_1^m$'s, we have
+\begin{eqnarray}
+n^1 &=& -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \left( Y_1^1 - Y_1^{-1} \right) \\
+n^2 &=& -\frac{1}{2i} \sqrt{\frac{8 \pi}{3}} \left( Y_1^1 + Y_1^{-1} \right) \\
+n^3 &=& \sqrt{4 \pi}{3}  Y_1^0
+\end{eqnarray}
+
+\noindent
+Note: $n^i$ are real, which implies
+\begin{eqnarray}
+n^1 &=& -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \left( Y_1^1 - Y_1^{-1} \right) \\
+&=&  -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \sin \theta \left( -e^{i \phi} - e^{-i\phi}  \right) \\
+&=& -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \sin \theta \left( -Y_1^{-1*} + Y_1^{1*} \right) \\
+n^1 &=& n^{1*}
+\end{eqnarray}
+and similarly for $n^2, n^3$.
+
+\noindent
+Imagine a scenario in which we rotate the coordinates such that the primary axis $z'$ differs from the original axis $z$ by an amount $(\gamma, \delta)$. [Inserting a graphic might be handy here.] In terms of the old coordinates $(\theta, \phi)$, we can write the expansion in the new coordinates $(\theta', \phi')$ as (see Merzbacher Eq.~16.60):
+\begin{equation}
+Y_1^0 (\theta', \phi') = \sqrt{\frac{4 \pi}{3}} \sum_m Y_1^m(\theta, \phi) Y_1^m(\gamma, \delta)
+\end{equation}
+Can we make a similar statement about $n^3$?
+\begin{eqnarray}
+n^3(\theta', \phi') &=& \sqrt{\frac{4 \pi}{3}} Y_1^0 (\theta', \phi') \\
+&=& \sqrt{\frac{4 \pi}{3}} \sqrt{\frac{4 \pi}{3}} \sum_m Y_1^m(\theta, \phi) Y_1^m(\gamma, \delta) \\
+&=& \frac{4 \pi}{3} \left( \frac{3}{8 \pi} \sin \theta e^{i \phi} \sin \gamma e^{-i \delta} 
++ \frac{3}{4 \pi} \cos \theta \cos \gamma 
++ \frac{3}{8 \pi} \sin \theta e^{-i \phi} \sin \gamma e^{i \delta} \right) \\
+&=& \cos \theta \cos \gamma
++ \frac{4 \pi}{3} \frac{3}{8 \pi} \sin \theta \sin \gamma \left( e^{i \phi} e^{-i \delta} + e^{-i \phi}e^{i \delta} + 0 \right) \\
+&=& n^3(\theta, \phi) n^3(\gamma, \delta) \\ \nonumber
+&&+ \frac{2 \pi}{3} \frac{3}{8 \pi} \sin \theta \sin \gamma \left( 2e^{i \phi} e^{-i \delta} + 2e^{-i \phi}e^{i \delta} 
++ e^{i \phi}e^{i \delta} - e^{i \phi}e^{i \delta} + e^{-i \phi}e^{-i \delta} - e^{-i \phi}e^{-i \delta}  \right) \\
+&=&  n^3(\theta, \phi) n^3(\gamma, \delta) \\ \nonumber
+&&+ \frac{2 \pi}{3} \frac{3}{8 \pi} \sin \theta \sin \gamma 
+\left( e^{i \phi}e^{i \delta} + e^{i \phi}e^{-i \delta} + e^{-i \phi}e^{i \delta} + e^{-i \phi}e^{-i \delta} \right) \\ \nonumber
+&&+ \frac{2 \pi}{3} \frac{3}{8 \pi} \sin \theta \sin \gamma 
+\left( -e^{i \phi}e^{i \delta} + e^{i \phi}e^{-i \delta} + e^{-i \phi}e^{i \delta} - e^{-i \phi}e^{-i \delta} \right) \\
+&=& n^3(\theta, \phi) n^3(\gamma, \delta) \\ \nonumber
+&& + \frac{2 \pi}{3} \left( -Y_1^{1}(\theta, \phi)Y_1^{-1*}(\gamma, \delta) + Y_1^{1}(\theta, \phi)Y_1^{1*}(\gamma, \delta) + Y_1^{-1}(\theta, \phi)Y_1^{-1*}(\gamma, \delta) - Y_1^{-1}(\theta, \phi)Y_1^{1*}(\gamma, \delta) \right) \\ \nonumber
+&& + \frac{2 \pi}{3} \left( Y_1^{1}(\theta, \phi)Y_1^{-1*}(\gamma, \delta) + Y_1^{1}(\theta, \phi)Y_1^{1*}(\gamma, \delta) + Y_1^{-1}(\theta, \phi)Y_1^{-1*}(\gamma, \delta) + Y_1^{-1}(\theta, \phi)Y_1^{1*}(\gamma, \delta) \right) \\
+&=&  n^3(\theta, \phi) n^3(\gamma, \delta) \\ \nonumber
+&& + \frac{2 \pi}{3} \left( Y_1^{1}(\theta, \phi) - Y_1^{-1}(\theta, \phi) \right) \left( Y_1^{1*}(\gamma, \delta) - Y_1^{-1*}(\gamma, \delta) \right) \\ \nonumber
+&& + \frac{2 \pi}{3} \left( Y_1^{1}(\theta, \phi) + Y_1^{-1}(\theta, \phi) \right) \left( Y_1^{1*}(\gamma, \delta) + Y_1^{-1*}(\gamma, \delta) \right) \\ \nonumber
+&=&  n^3(\theta, \phi) n^3(\gamma, \delta)  + n^1(\theta, \phi) n^{1*}(\gamma, \delta) + n^2(\theta, \phi) n^{2*}(\gamma, \delta)\\ 
+n^3(\theta', \phi') &=& \sum_m n^m(\theta, \phi)n^{m*}(\gamma, \delta) =  \sum_m n^m(\theta, \phi)n^{m}(\gamma, \delta) 
+\end{eqnarray}
+
+\noindent
+When $\gamma, \delta$ are chosen carefully such that the $z'$ axis is now a symmetry axis, then the $m \ne 0$ modes vanish in the $Y_1^m(\theta', \phi')$ expansion.
+
+
+
+
+
+
+%\bibliographystyle{apsrev}
+%\bibliography{bibfile}
+
+
+\end{document}

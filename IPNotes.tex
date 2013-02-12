@@ -53,7 +53,7 @@ IP5 is the equation
 %\begin{equation}
 %\frac{1}{2} \oint  (D^k v_i)(D_k v_j) {\rm d A} = \frac{2}{3}  \pi A s \delta_{ij}.
 %\end{equation}
-In general,
+(Note that ${\rm dA} = r^2 \psi^4 {\rm d\Omega}$.) In general,
 \begin{eqnarray}
 {^2}R &=& \frac{2}{r^2 \psi^4} (1-2{~_s}\nabla^2 \ln \psi)\\
 S_{ij} &=& \left( \begin{matrix} 1&0 \\ 0 & \sin^2 \theta \end{matrix} \right) \\
@@ -106,7 +106,7 @@ L_i &=& \sum_{l=1}^{1} {\sum_{m=i}}' \{ a_{lm}^{L}  - b_{lm}^{L} \} = a_{1i}^{L}
 Then $v$ can be expressed as
 \begin{eqnarray}
 v_i &\equiv& \sum_{l=0}^{\infty} {\sum_{m=0}^{l}}' \{ a_{lm}^{v}  - b_{lm}^{v} \} \\
-{_s}\nabla^2 v_i &=& \sum_{l=0}^{\infty} {\sum_{m=0}^{l}}' l(l+1)\{a_{lm}^{v}  - b_{lm}^{v} \} \\
+{_s}\nabla^2 v_i &=& -\sum_{l=0}^{\infty} {\sum_{m=0}^{l}}' l(l+1)\{a_{lm}^{v}  - b_{lm}^{v} \} \\
 {_s}\nabla^2 v_i &=& -2 r^2 \psi^4 L_i = - a_{00}^{r^2 \psi^4} \{ a_{1i}^{L} - b_{1i}^{L} \}\\
 \implies v_i &=& -\frac{1}{2} a_{00}^{r^2 \psi^4} \{ a_{1i}^{L}-b_{1i}^{L} \}.
 \end{eqnarray}
@@ -147,6 +147,7 @@ The relations IP1 and IP2 become
 
 
 \section{Arbitrary Surface}
+\subsection{With Ricci term}
 For an arbitrary surface, $l \ne 1$ terms may contribute to the expansions of $L$ and $r^2 \psi^4$.  The function $L$ is represented as
 \begin{eqnarray}
 L_i  &=& \sum_{l=0}^{\infty}{\sum_{m=0}^l}' P_l^m \{ a_{lm} \cos(m\phi) - b_{lm}\sin(m\phi)\} \\
@@ -170,14 +171,41 @@ v_i &=& -r^2 \psi^4 L_i \\ \nonumber
         \sum_{l=2}^{\infty}{\sum_{m=0}^l}' \{ a_{lm}^{L}-b_{lm}^{L}\}
 \end{eqnarray}
 
+\newpage
+\noindent
+Then [IP1,IP2] become
+\begin{eqnarray}
+&&\frac{1}{2} \oint \frac{2}{r^2\psi^4} \left(1-2~_s\nabla^2 \ln \psi \right) \frac{1}{r^2 \psi^4} S^{kl} (\partial_l v_i)(\partial_k v_j) {\rm d [\Omega,A]} \\
+&=& \oint \frac{1}{r^4 \psi^8}  S^{kl} (\partial_l v_i)(\partial_k v_j) {\rm d [\Omega,A]} -  \oint \frac{1}{r^4 \psi^8}  \left(2~_s\nabla^2 \ln \psi \right)S^{kl} (\partial_l v_i)(\partial_k v_j) {\rm d [\Omega,A]} \\
+&=& \oint \frac{1}{r^4 \psi^8}  S^{kl} (r^4\psi^8) (\partial_l L_i)(\partial_k L_j) {\rm d [\Omega,A]} + \oint \frac{1}{r^4 \psi^8}  S^{kl} L_i L_j(\partial_l r^2\psi^4)(\partial_k r^2\psi^4) {\rm d [\Omega,A]} \\ \nonumber
+&&-  \oint \frac{1}{r^4 \psi^8}  \left(2~_s\nabla^2 \ln \psi \right)S^{kl} (\partial_l v_i)(\partial_k v_j) {\rm d [\Omega,A]} \\
+\end{eqnarray}
+Does $\partial L_{nm}$ contribute to the integral for $n \ne 1$?  Is it correct that we are only looking for $X_{00}, \partial X_{1,m}, \nabla^2 X_{2,m} \ldots$ terms? If so, then:
+\begin{eqnarray}
+&=& \oint S^{kl} (\partial_l L_{1i})(\partial_k L_{1j}) {\rm d [\Omega,A]} 
++ \oint \frac{1}{r^4 \psi^8}  S^{kl} L_{00} L_{00} \left[ \partial_l (r^2\psi^4)_{1i} \right] \left[ \partial_k (r^2\psi^4)_{1j} \right] {\rm d [\Omega,A]} \\ \nonumber
+&&- \oint  \left(2~_s\nabla^2 \ln \psi \right)S^{kl} (\partial_l L_i)(\partial_k L_j) {\rm d [\Omega,A]} \\ \nonumber
+&&- \oint \frac{1}{r^4 \psi^8} \left(2~_s\nabla^2 \ln \psi \right) S^{kl} L_{00} L_{00}\left[ \partial_l (r^2\psi^4)_{1i} \right] \left[ \partial_k (r^2\psi^4)_{1j} \right] {\rm d [\Omega,A]}
+\end{eqnarray}
+If the above assumption is correct, then we can/must simplify the $\left(2~_s\nabla^2 \ln \psi \right)$ term.  How do we associate the $m$-terms of $\psi_{2m}$ with the $i$-terms of $v_i$?
+\begin{eqnarray}
+&=& \oint S^{kl} (\partial_l L_{1i})(\partial_k L_{1j}) {\rm d [\Omega,A]} 
++ \oint a_{00}^{1/r^4 \psi^8}  S^{kl} a_{00}^{L} a_{00}^{L} \left[ \partial_l (r^2\psi^4)_{1i} \right] \left[ \partial_k (r^2\psi^4)_{1j} \right] {\rm d [\Omega,A]} \\ \nonumber
+&&- \oint  \left(2~_s\nabla^2 \ln \psi_{2m} \right)S^{kl} (\partial_l L_i)(\partial_k L_j) {\rm d [\Omega,A]} \\ \nonumber
+&&- \oint a_{00}^{1/r^4 \psi^8} \left(2~_s\nabla^2 \ln \psi \right) S^{kl}a_{00}^{L} a_{00}^{L} \left[ \partial_l (r^2\psi^4)_{1i} \right] \left[ \partial_k (r^2\psi^4)_{1j} \right] {\rm d [\Omega,A]}
+\end{eqnarray}
+If my assumptions are correct, this is the result.  The first term looks like the result for the sphere.
 
-
-
-
-
-
-
-
+\subsection{Without Ricci term}
+For [IP4,IP5] we get:
+\begin{eqnarray}
+&&\frac{1}{2} \oint \frac{1}{r^2 \psi^4} S^{kl} (\partial_l v_i)(\partial_k v_j) {\rm d [\Omega,A]} \\
+&=& \frac{1}{2} \oint \frac{1}{r^2 \psi^4} S^{kl} r^4\psi^8 (\partial_l L_i)(\partial_k L_j) {\rm d [\Omega,A]} \\ \nonumber
+&& + \frac{1}{2} \oint \frac{1}{r^2 \psi^4} S^{kl} L_{00} L_{00} \left[ \partial_l (r^2\psi^4)_{1i} \right] \left[ \partial_k (r^2\psi^4)_{1j} \right] {\rm d [\Omega,A]} \\ 
+&=& \frac{1}{2} \oint a_{00}^{r^2\psi^4} S^{kl}  (\partial_l L_i)(\partial_k L_j) {\rm d [\Omega,A]} \\ \nonumber
+&&+\frac{1}{2} \oint a_{00}^{1/r^2 \psi^4} S^{kl} a_{00}^L a_{00}^L  \left[ \partial_l (r^2\psi^4)_{1i} \right] \left[ \partial_k (r^2\psi^4)_{1j} \right] {\rm d [\Omega,A]}
+\end{eqnarray}
+The ${\rm d\Omega}$ integral of the first term looks like $1/2$ IP2 for a sphere.
 
 
 
