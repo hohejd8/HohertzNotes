@@ -48,62 +48,114 @@ Y_1^0 &=& \sqrt{\frac{3}{4 \pi}} \cos \theta \\
 Y_1^{\pm 1} &=& \mp \sqrt{\frac{3}{8 \pi}} \sin \theta e^{\pm i \phi}.
 \end{eqnarray}
 We can write the orthogonal directions $(x,y,z)$ in terms of trig functions on a sphere:
-\begin{alignat*}{3}
-n^1 &= \sin \theta \cos \phi &= \hat{x} \\
-n^2 &= \sin \theta \sin \phi &= \hat{y}\\
-n^3 &= \cos \theta &= \hat{z}
-\end{alignat*}
+\begin{alignat}{3}
+n_1 &= \sin \theta \cos \phi &= {x} \\
+n_2 &= \sin \theta \sin \phi &= {y}\\
+n_3 &= \cos \theta &= {z}
+\end{alignat}
 Then in terms of the $Y_1^m$'s, we have
-\begin{eqnarray}
-n^1 &=& -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \left( Y_1^1 - Y_1^{-1} \right) \\
-n^2 &=& -\frac{1}{2i} \sqrt{\frac{8 \pi}{3}} \left( Y_1^1 + Y_1^{-1} \right) \\
-n^3 &=& \sqrt{4 \pi}{3}  Y_1^0
-\end{eqnarray}
+\begin{equation}
+\begin{split}
+\label{n-Y}
+n_1 &= -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \left( Y_1^1 - Y_1^{-1} \right) \\
+n_2 &= -\frac{1}{2i} \sqrt{\frac{8 \pi}{3}} \left( Y_1^1 + Y_1^{-1} \right) \\
+n_3 &= \sqrt{4 \pi}{3}  Y_1^0
+\end{split}
+\end{equation}
 
 \noindent
-Note: $n^i$ are real, which implies
+Note: $n_i$ are real, which implies
 \begin{eqnarray}
-n^1 &=& -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \left( Y_1^1 - Y_1^{-1} \right) \\
+n_1 &=& -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \left( Y_1^1 - Y_1^{-1} \right) \\
 &=&  -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \sin \theta \left( -e^{i \phi} - e^{-i\phi}  \right) \\
 &=& -\frac{1}{2} \sqrt{\frac{8 \pi}{3}} \sin \theta \left( -Y_1^{-1*} + Y_1^{1*} \right) \\
-n^1 &=& n^{1*}
+n_1 &=& n_{1*}
 \end{eqnarray}
-and similarly for $n^2, n^3$.
+and similarly for $n_2, n_3$.
 
 \noindent
 Imagine a scenario in which we rotate the coordinates such that the primary axis $z'$ differs from the original axis $z$ by an amount $(\gamma, \delta)$. [Inserting a graphic might be handy here.] In terms of the old coordinates $(\theta, \phi)$, we can write the expansion in the new coordinates $(\theta', \phi')$ as (see Merzbacher Eq.~16.60):
 \begin{equation}
 Y_1^0 (\theta', \phi') = \sqrt{\frac{4 \pi}{3}} \sum_m Y_1^m(\theta, \phi) Y_1^m(\gamma, \delta)
 \end{equation}
-Can we make a similar statement about $n^3$?
+Can we make a similar statement about $n_3$?
 \begin{eqnarray}
-n^3(\theta', \phi') &=& \sqrt{\frac{4 \pi}{3}} Y_1^0 (\theta', \phi') \\
+n_3(\theta', \phi') &=& \sqrt{\frac{4 \pi}{3}} Y_1^0 (\theta', \phi') \\
 &=& \sqrt{\frac{4 \pi}{3}} \sqrt{\frac{4 \pi}{3}} \sum_m Y_1^m(\theta, \phi) Y_1^m(\gamma, \delta) \\
 &=& \frac{4 \pi}{3} \left( \frac{3}{8 \pi} \sin \theta e^{i \phi} \sin \gamma e^{-i \delta} 
 + \frac{3}{4 \pi} \cos \theta \cos \gamma 
 + \frac{3}{8 \pi} \sin \theta e^{-i \phi} \sin \gamma e^{i \delta} \right) \\
 &=& \cos \theta \cos \gamma
 + \frac{4 \pi}{3} \frac{3}{8 \pi} \sin \theta \sin \gamma \left( e^{i \phi} e^{-i \delta} + e^{-i \phi}e^{i \delta} + 0 \right) \\
-&=& n^3(\theta, \phi) n^3(\gamma, \delta) \\ \nonumber
+&=& n_3(\theta, \phi) n_3(\gamma, \delta) \\ \nonumber
 &&+ \frac{2 \pi}{3} \frac{3}{8 \pi} \sin \theta \sin \gamma \left( 2e^{i \phi} e^{-i \delta} + 2e^{-i \phi}e^{i \delta} 
 + e^{i \phi}e^{i \delta} - e^{i \phi}e^{i \delta} + e^{-i \phi}e^{-i \delta} - e^{-i \phi}e^{-i \delta}  \right) \\
-&=&  n^3(\theta, \phi) n^3(\gamma, \delta) \\ \nonumber
+&=&  n_3(\theta, \phi) n_3(\gamma, \delta) \\ \nonumber
 &&+ \frac{2 \pi}{3} \frac{3}{8 \pi} \sin \theta \sin \gamma 
 \left( e^{i \phi}e^{i \delta} + e^{i \phi}e^{-i \delta} + e^{-i \phi}e^{i \delta} + e^{-i \phi}e^{-i \delta} \right) \\ \nonumber
 &&+ \frac{2 \pi}{3} \frac{3}{8 \pi} \sin \theta \sin \gamma 
 \left( -e^{i \phi}e^{i \delta} + e^{i \phi}e^{-i \delta} + e^{-i \phi}e^{i \delta} - e^{-i \phi}e^{-i \delta} \right) \\
-&=& n^3(\theta, \phi) n^3(\gamma, \delta) \\ \nonumber
+&=& n_3(\theta, \phi) n_3(\gamma, \delta) \\ \nonumber
 && + \frac{2 \pi}{3} \left( -Y_1^{1}(\theta, \phi)Y_1^{-1*}(\gamma, \delta) + Y_1^{1}(\theta, \phi)Y_1^{1*}(\gamma, \delta) + Y_1^{-1}(\theta, \phi)Y_1^{-1*}(\gamma, \delta) - Y_1^{-1}(\theta, \phi)Y_1^{1*}(\gamma, \delta) \right) \\ \nonumber
 && + \frac{2 \pi}{3} \left( Y_1^{1}(\theta, \phi)Y_1^{-1*}(\gamma, \delta) + Y_1^{1}(\theta, \phi)Y_1^{1*}(\gamma, \delta) + Y_1^{-1}(\theta, \phi)Y_1^{-1*}(\gamma, \delta) + Y_1^{-1}(\theta, \phi)Y_1^{1*}(\gamma, \delta) \right) \\
-&=&  n^3(\theta, \phi) n^3(\gamma, \delta) \\ \nonumber
+&=&  n_3(\theta, \phi) n_3(\gamma, \delta) \\ \nonumber
 && + \frac{2 \pi}{3} \left( Y_1^{1}(\theta, \phi) - Y_1^{-1}(\theta, \phi) \right) \left( Y_1^{1*}(\gamma, \delta) - Y_1^{-1*}(\gamma, \delta) \right) \\ \nonumber
 && + \frac{2 \pi}{3} \left( Y_1^{1}(\theta, \phi) + Y_1^{-1}(\theta, \phi) \right) \left( Y_1^{1*}(\gamma, \delta) + Y_1^{-1*}(\gamma, \delta) \right) \\ \nonumber
-&=&  n^3(\theta, \phi) n^3(\gamma, \delta)  + n^1(\theta, \phi) n^{1*}(\gamma, \delta) + n^2(\theta, \phi) n^{2*}(\gamma, \delta)\\ 
-n^3(\theta', \phi') &=& \sum_m n^m(\theta, \phi)n^{m*}(\gamma, \delta) =  \sum_m n^m(\theta, \phi)n^{m}(\gamma, \delta) 
+&=&  n_3(\theta, \phi) n_3(\gamma, \delta)  + n_1(\theta, \phi) n_{1*}(\gamma, \delta) + n_2(\theta, \phi) n_{2*}(\gamma, \delta)\\ 
+n_3(\theta', \phi') &=& \sum_m n_m(\theta, \phi)n_{m*}(\gamma, \delta) =  \sum_m n_m(\theta, \phi)n_{m}(\gamma, \delta) 
 \end{eqnarray}
 
 \noindent
 When $\gamma, \delta$ are chosen carefully such that the $z'$ axis is now a symmetry axis, then the $m \ne 0$ modes vanish in the $Y_1^m(\theta', \phi')$ expansion.
+
+\newpage
+\noindent
+Let $\vec{A}$ be an arbitrary vector which has a spherical harmonic decomposition
+\begin{equation}
+\vec{A} = a_1^{0} Y_1^{0} + a_1^{1} Y_1^{1} + a_1^{-1} Y_1^{-1}.
+\end{equation}
+When we take advantage of the orthogonality of the 
+(non-normalized)
+$n_i$ from Eq.~\ref{n-Y}, we can write the dot product of $\vec{A}$ with itself  as
+\begin{comment}
+\begin{eqnarray}
+\vec{A} \cdot \vec{A} &=& 
+\left[ \frac{1}{4}\frac{8 \pi}{3} (a_1^{1} Y_1^{1} - a_1^{1} Y_1^{1}) (a_1^{1} Y_1^{1} - a_1^{1} Y_1^{1}) \right]
++\left[ \frac{-1}{4}\frac{8 \pi}{3} (a_1^{1} Y_1^{1} + a_1^{1} Y_1^{1}) (a_1^{1} Y_1^{1} + a_1^{1} Y_1^{1}) \right] \\ \nonumber
+&&+ \left[ \frac{4 \pi}{3} (a_1^{0})(a_1^{0}) \right] \\
+&=& \frac{2 \pi}{3} \left[ (a_1^{1})^2 + 2 a_1^{1} a_1^{-1}  + (a_1^{-1})^2 
+- (a_1^{1})^2 + 2 a_1^{1} a_1^{-1} - (a_1^{-1})^2 \right] +   \frac{4 \pi}{3} (a_1^{0})^2 \\
+&=& \frac{8 \pi}{3} a_1^{1} a_1^{-1} +  \frac{4 \pi}{3} (a_1^{0})^2 
+\end{eqnarray}
+\end{comment}
+\begin{eqnarray}
+\vec{A} \cdot \vec{A} &=& 
+\left[  (a_1^{1} Y_1^{1} + a_1^{-1} Y_1^{-1}) (a_1^{1} Y_1^{1} + a_1^{-1} Y_1^{-1}) \right]
++ i^2 \left[  (a_1^{1} Y_1^{1} - a_1^{-1} Y_1^{-1}) (a_1^{1} Y_1^{1} - a_1^{-1} Y_1^{-1}) \right] \\ \nonumber
+&&+ \left[  (a_1^{0}Y_1^{0})(a_1^{0}Y_1^{0}) \right] \\
+&=& \left[ (a_1^{1}Y_1^{1})^2 + 2 a_1^{1} a_1^{-1}Y_1^{1}Y_1^{-1}  + (a_1^{-1}Y_1^{-1})^2 
+- (a_1^{1}Y_1^{1})^2 + 2 a_1^{1} a_1^{-1}Y_1^{1}Y_1^{-1} - (a_1^{-1}Y_1^{-1})^2 \right]  \\ \nonumber
+&&+    (a_1^{0}Y_1^{0})^2 \\
+&=& 4 a_1^{1} a_1^{-1} +   (a_1^{0}Y_1^{0})^2 \\
+&=&    (a_1^{0}Y_1^{0})^2 
+\end{eqnarray}
+The cross-terms vanish because the spherical harmonics are orthogonal in $l$ and $m$.
+
+
+From Eq.~\ref{n-Y}, we can say that
+\begin{eqnarray}
+b_1 &=& (a_1^{1}-a_1^{1}) \\
+b_2 &=& (a_1^{1}+a_1^{1}) \\
+b_3 &=& a_1^{0}.
+\end{eqnarray}
+
+
+
+
+
+
+
+
 
 
 
